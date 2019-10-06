@@ -1,0 +1,2 @@
+Using Docker Toolbox so had to follow https://www.jhipster.tech/tips/020_tip_using_docker_containers_as_localhost_on_mac_and_windows.html
+to connect up my client and server in my environment setup. If running Docker on linux or docker desktop for Windows/Mac, shouldn't have to do this.

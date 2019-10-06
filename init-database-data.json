@@ -1,0 +1,45 @@
+{
+    "firstName": "Trevor",
+    "surName": "Aparicio",
+    "phoneNumber": "+1 303-829-1044",
+    "address": "9796 Bucknell Way, Highlands Ranch, CO, USA",
+    "creationDateTime": "2019-10-06T15:10:00+00:00",
+    "status": "current",
+    "notes": []
+}
+{
+    "firstName": "Elizabeth",
+    "surName": " Aparicio",
+    "phoneNumber": "+1 303-587-0658",
+    "address": "9796 Bucknell Way, Highlands Ranch, CO, USA",
+    "creationDateTime": "2019-10-06T15:11:00+00:00",
+    "status": "non-active",
+    "notes": []
+}
+{
+    "firstName": "Bob",
+    "surName": "Builder",
+    "phoneNumber": "",
+    "address": "",
+    "creationDateTime": "2019-10-06T15:12:00+00:00",
+    "status": "prospective",
+    "notes": []
+}
+{
+    "firstName": "Alice",
+    "surName": "Wonderland",
+    "phoneNumber": "",
+    "address": "Rabbit Hole 1",
+    "creationDateTime": "2019-10-06T15:15:00+00:00",
+    "status": "prospective",
+    "notes": []
+}
+{
+    "firstName": "Gandalf",
+    "surName": "Grey",
+    "phoneNumber": "",
+    "address": "The Shire",
+    "creationDateTime": "2019-10-06T15:20:00+00:00",
+    "status": "current",
+    "notes": []
+}
