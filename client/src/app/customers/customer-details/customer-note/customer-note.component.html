@@ -1,0 +1,11 @@
+<div class="customer-note">
+  <textarea [readonly]="!editable && index >= 0" [(ngModel)]="note"></textarea>
+  <div *ngIf="index >= 0">
+    <button *ngIf="!editable" (click)="editNote()">Edit</button>
+    <button *ngIf="editable" (click)="saveNote(note)">Save</button>
+    <button (click)="deleteNote()">Delete</button>
+  </div>
+  <div *ngIf="index < 0">
+    <button (click)="addNote(note)">Add</button>
+  </div>
+</div>

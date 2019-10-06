@@ -1,0 +1,17 @@
+<div class="customer-list">
+  <h2>Customer List</h2>
+  <input type="text" name="filter" [(ngModel)]="filterText" autocomplete="off" placeholder="Filter Customers By Name" />
+  <button (click)="changeSortDirection()">Sort Customers {{sortDirection === "ASC" ? "DESC" : "ASC"}}</button>
+  <ul>
+    <li *ngFor="let customer of customers | filter:filterText:['firstName','surName']"
+        [class.selected]="customer === selectedCustomer"
+        (click)="onSelect(customer)">
+      {{customer.surName}}, {{customer.firstName}}
+    </li>
+  </ul>
+</div>
+<div class="customer-details">
+  <app-customer-details
+    [customer]="selectedCustomer">
+  </app-customer-details>
+</div>

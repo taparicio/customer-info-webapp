@@ -1,0 +1,7 @@
+.customer-note {
+    width: 100%;
+    display: inline-block;
+}
+.customer-note textarea {
+    float: left;
+}

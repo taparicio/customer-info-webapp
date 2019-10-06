@@ -1,0 +1,45 @@
+<div *ngIf="customer">
+  <h2>{{customer.firstName}} {{customer.surName}} Details</h2>
+  <div>
+    <label>First Name: <span>{{customer.firstName}}</span></label>
+  </div>
+  <div>
+    <label>Sur Name: <span>{{customer.surName}}</span></label>
+  </div>
+  <div>
+    <label>Phone Number: <span>{{customer.phoneNumber}}</span></label>
+  </div>
+  <div>
+    <label>Address: <span>{{customer.address}}</span></label>
+  </div>
+  <div>
+    <label>Status:</label>
+    <select (change)="this.selectedStatus = $event.target.value" [ngModel]="selectedStatus">
+      <option *ngFor="let statusValue of statusValues" [value]="statusValue">
+        {{statusValue}}
+      </option>
+    </select>
+    <button *ngIf="this.selectedStatus !== customer.status" (click)="submitCustomerStatus()">Submit</button>
+  </div>
+  <div>
+    <label>Creation Time: <span>{{customer.creationDateTime}}</span></label>
+  </div>
+  <div>
+    <label>Notes:</label>
+    <div *ngFor="let note of customer.notes; let i = index">
+      <app-customer-note
+        [note]="note"
+        [index]="i"
+        [updateNoteHandler]="updateNote"
+        [deleteNoteHandler]="deleteNote">
+      </app-customer-note>
+    </div>
+    <div class="add-customer-note">
+      <app-customer-note
+        [note]=""
+        [index]="-1"
+        [addNoteHandler]="addNote">
+      </app-customer-note>
+    </div>
+  </div>
+</div>
