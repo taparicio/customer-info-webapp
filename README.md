@@ -13,3 +13,6 @@ Install the docker daemon and docker-compose. Once Docker is installed on the ma
 
 **Note:**
 Due to my developing on a Windows 8.1 machine I was forced to use Docker Toolbox instead of Docker Desktop for Windows so I had to follow https://www.jhipster.tech/tips/020_tip_using_docker_containers_as_localhost_on_mac_and_windows.html to be able to access my server from my client using the "localhost" URL. Using "localhost" should allow others running docker from the desktop (Docker Desktop for Windows/Mac or docker in Linux) to run without issues. Therefore, if you are running Docker on linux or Docker Desktop for Windows/Mac, you shouldn't have to do this.
+
+## Viewing the Application
+When the docker images are running via docker-compose the web application can be accessed at [localhost](http://localhost:80)
