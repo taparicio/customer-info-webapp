@@ -1,5 +1,16 @@
 /* Customer details pane private styles. */
 .customer-details {
-    margin-left: 15%;
-    
+    margin: 0 3em;
+}
+.customer-details div {
+    margin: 0.4em;
+}
+.customer-details label {
+    display: inline-block;
+    margin: 0 1em;
+    width: 110px;
+    font-weight: bold;
+}
+div.customer-notes {
+    margin: 0 0 0 60px !important;
 }

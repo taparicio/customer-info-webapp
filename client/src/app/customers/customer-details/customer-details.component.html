@@ -1,20 +1,20 @@
-<div *ngIf="customer">
+<div *ngIf="customer" class="customer-details">
   <h2>{{customer.firstName}} {{customer.surName}} Details</h2>
   <div>
-    <label>First Name: <span>{{customer.firstName}}</span></label>
+    <label>First Name:</label>{{customer.firstName}}
   </div>
   <div>
-    <label>Sur Name: <span>{{customer.surName}}</span></label>
+    <label>Surname:</label>{{customer.surName}}
   </div>
   <div>
-    <label>Phone Number: <span>{{customer.phoneNumber}}</span></label>
+    <label>Phone Number:</label>{{customer.phoneNumber}}
   </div>
   <div>
-    <label>Address: <span>{{customer.address}}</span></label>
+    <label>Address:</label>{{customer.address}}
   </div>
   <div>
     <label>Status:</label>
-    <select (change)="this.selectedStatus = $event.target.value" [ngModel]="selectedStatus">
+    <select (change)="this.selectedStatus = $event.target.value" [ngModel]="selectedStatus" style="margin: 0 5px 0 0;">
       <option *ngFor="let statusValue of statusValues" [value]="statusValue">
         {{statusValue}}
       </option>
@@ -22,24 +22,26 @@
     <button *ngIf="this.selectedStatus !== customer.status" (click)="submitCustomerStatus()">Submit</button>
   </div>
   <div>
-    <label>Creation Time: <span>{{customer.creationDateTime}}</span></label>
+    <label>Creation Time:</label>{{customer.creationDateTime}}
   </div>
   <div>
     <label>Notes:</label>
-    <div *ngFor="let note of customer.notes; let i = index">
-      <app-customer-note
-        [note]="note"
-        [index]="i"
-        [updateNoteHandler]="updateNote"
-        [deleteNoteHandler]="deleteNote">
-      </app-customer-note>
-    </div>
-    <div class="add-customer-note">
-      <app-customer-note
-        [note]=""
-        [index]="-1"
-        [addNoteHandler]="addNote">
-      </app-customer-note>
+    <div class="customer-notes">
+      <div *ngFor="let note of customer.notes; let i = index">
+        <app-customer-note
+          [note]="note"
+          [index]="i"
+          [updateNoteHandler]="updateNote"
+          [deleteNoteHandler]="deleteNote">
+        </app-customer-note>
+      </div>
+      <div class="add-customer-note">
+        <app-customer-note
+          [note]=""
+          [index]="-1"
+          [addNoteHandler]="addNote">
+        </app-customer-note>
+      </div>
     </div>
   </div>
 </div>

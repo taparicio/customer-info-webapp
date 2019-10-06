@@ -1,3 +1,6 @@
+// customer-note.component.ts
+// Component allowing notes to be taken on the customer
+
 import { Component, OnInit, Input } from '@angular/core';
 import { CustomerService } from '../../customer.service';
 
@@ -14,12 +17,15 @@ export class CustomerNoteComponent implements OnInit {
   @Input()
   index: number;
 
+  // Notifies of an added customer note
   @Input()
   addNoteHandler: Function;
 
+  // Notifies of an update to a customer note
   @Input()
   updateNoteHandler: Function;
 
+  // Notifies of a deleted customer note
   @Input()
   deleteNoteHandler: Function;
 
@@ -52,7 +58,7 @@ export class CustomerNoteComponent implements OnInit {
     this.updateNoteHandler(note, this.index);
   }
 
-  // Delete the note
+  // Delete the edited note
   deleteNote() {
     console.log(`deleting ${this.index}`);
     this.deleteNoteHandler(this.index);

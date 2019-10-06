@@ -1,3 +1,6 @@
+// customer.model.ts
+// Front-end customer model. Should match the REST API model.
+
 export class Customer {
 
     _id?: string;

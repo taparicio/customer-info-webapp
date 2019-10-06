@@ -1,3 +1,6 @@
+// customer.service.ts
+// Provides the services for connecting to the Customer REST API.
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
@@ -8,7 +11,6 @@ import { Customer } from './models/customer.model';
     providedIn: 'root'
 })
 export class CustomerService {
-    // apiServerUrl = process.env.API_SERVER_URL || 'http://localhost:8080';
     apiServerUrl = 'http://localhost:8080';
     apiUrl = `${this.apiServerUrl}/api/customers`;
     httpOptions = {
@@ -17,10 +19,9 @@ export class CustomerService {
 
     constructor(private http: HttpClient) { }
 
-    // handle api errors
+    // Handle HTTP API errors
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
-            // log the error
             console.error(error);
 
             // TODO: notify the user of the error that occurred
@@ -30,7 +31,7 @@ export class CustomerService {
         };
     }
 
-
+    // GET all customers.
     getCustomers(): Observable<Customer[]> {
         return this.http.get<Customer[]>(this.apiUrl).pipe(
             tap(_ => console.log('fetched customers')),
@@ -38,6 +39,7 @@ export class CustomerService {
         );
     }
 
+    // GET a specific customer by the unique ID.
     getCustomer(id: string): Observable<Customer> {
         const url = `${this.apiUrl}/${id}`;
         return this.http.get<Customer>(url).pipe(
@@ -46,6 +48,8 @@ export class CustomerService {
         );
     }
 
+    // PUT a customer update.
+    // The given customer argument is the customer with the updated information.
     updateCustomer(customer: Customer) {
         return this.http.put<Customer>(`${this.apiUrl}/${customer._id}`, customer, this.httpOptions).pipe(
             tap(_ => console.log(`updated customer id=${customer._id}`)),

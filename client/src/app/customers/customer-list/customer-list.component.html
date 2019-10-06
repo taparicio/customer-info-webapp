@@ -1,7 +1,7 @@
 <div class="customer-list">
   <h2>Customer List</h2>
   <input type="text" name="filter" [(ngModel)]="filterText" autocomplete="off" placeholder="Filter Customers By Name" />
-  <button (click)="changeSortDirection()">Sort Customers {{sortDirection === "ASC" ? "DESC" : "ASC"}}</button>
+  <button class="sort-button" (click)="changeSortDirection()">Sort Customers {{sortDirection === "ASC" ? "DESC" : "ASC"}}</button>
   <ul>
     <li *ngFor="let customer of customers | filter:filterText:['firstName','surName']"
         [class.selected]="customer === selectedCustomer"

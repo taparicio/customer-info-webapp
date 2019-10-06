@@ -1,9 +1,14 @@
 /* CustomerList's private CSS styles */
-.customer-list {
+div.customer-list {
   margin: 0 0 2em 0;
-  padding: 0;
-  width: 15%;
+  padding: 0 0.5em;
+  width: 200px;
+  height: 90vh;
+  background-color: lightslategrey;
   float: left;
+}
+.sort-button {
+  margin: 0.2em 0 1em;
 }
 .customer-list ul {
     list-style-type: none;
@@ -20,16 +25,16 @@
   border-radius: 4px;
 }
 .customer-list li:hover {
-  color: #607D8B;
+  color: darkslategray;
   background-color: #DDD;
   left: .1em;
 }
 .customer-list li.selected {
-  background-color: #CFD8DC;
+  background-color: rgb(165, 175, 179);
   color: white;
 }
 .customer-list li.selected:hover {
-  background-color: #BBD8DC;
+  background-color: rgb(172, 197, 201);
   color: white;
 }
 .customer-list .customer-name {
