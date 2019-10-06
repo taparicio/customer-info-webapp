@@ -13,13 +13,32 @@ var app = express();
 // Setup mongoose connection to MongoDB
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/CustomersDatabase"
 mongoose.Promise = global.Promise;
-mongoose.connect(mongoUrl, {useNewUrlParser: true, useUnifiedTopology: true});
+
+const maxConnectRetries = 30;
+var connectRetries = 0;
+const connectInterval = 1000;
+var connectWithRetry = function() {
+    return mongoose.connect(mongoUrl, {useNewUrlParser: true, useUnifiedTopology: true, autoReconnect: true}, function(err) {
+        if (err) {
+            if (connectRetries === maxConnectRetries) {
+                console.error("Failed to connect to mongo", err);
+                throw(err);
+            }
+            console.error(`Failed to connect to mongo on startup - retrying in ${connectInterval} msec`);
+            setTimeout(connectWithRetry, connectInterval);
+            connectRetries++;
+        }
+    });
+};
+connectWithRetry();
 
 // Connect to MongoDB
 var db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error"));
+db.on("error", function(err) {
+    console.error(`Mongo connection error occurred: ${err.message}`);
+});
 db.once("open", function() {
-    // connection successful
+    console.log("Database connection open");
 });
 
 // Setup express middleware for parsing JSON

@@ -9,14 +9,18 @@ services:
       - ./client:/usr/src/app
   server:
     build: ./server
+    restart: always
     ports:
       - "8080:8080"
     environment:
       - MONGO_URL=mongodb://database/CustomersDatabase
     links:
       - database
+    depends_on:
+      - database
   database:
     image: mongo
+    restart: always
     ports:
       - "27017:27017"
     volumes:
